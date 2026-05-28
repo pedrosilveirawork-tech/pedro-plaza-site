@@ -1,229 +1,513 @@
-<!-- ADICIONAR NO MENU SUPERIOR -->
+# index.html completo
 
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Plaza | Gestão Financeira</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f7f8fb;
+color:#101114;
+overflow-x:hidden;
+}
+.container{width:min(1120px,92%);margin:auto}
+header{
+position:sticky;
+top:0;
+background:rgba(255,255,255,.82);
+backdrop-filter:blur(14px);
+z-index:99;
+border-bottom:1px solid rgba(0,0,0,.05);
+}
+nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 0;
+}
+.logo-img{height:64px;width:auto}
+.menu{
+display:flex;
+gap:24px;
+font-size:15px;
+}
+.menu a{text-decoration:none;color:#101114}
+.hero{
+padding:100px 0;
+position:relative;
+overflow:hidden;
+}
+.hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle, rgba(47,107,255,.18), transparent 65%);
+right:-250px;
+top:-250px;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 420px;
+gap:70px;
+align-items:center;
+position:relative;
+z-index:2;
+}
+.label{
+color:#2f6bff;
+text-transform:uppercase;
+font-size:12px;
+font-weight:800;
+letter-spacing:.16em;
+margin-bottom:18px;
+}
+h1{
+font-size:clamp(46px,7vw,84px);
+line-height:.95;
+letter-spacing:-.07em;
+margin-bottom:24px;
+}
+.hero p{
+font-size:20px;
+color:#5f6470;
+max-width:620px;
+margin-bottom:34px;
+}
+.buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+.btn{
+padding:16px 26px;
+border-radius:999px;
+font-weight:700;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+transition:.2s;
+}
+.btn-primary{
+background:#101114;
+color:white;
+box-shadow:0 18px 40px rgba(16,17,20,.18);
+}
+.btn-secondary{
+background:white;
+color:#101114;
+border:1px solid rgba(0,0,0,.06);
+}
+.phone{
+background:#101114;
+padding:14px;
+border-radius:42px;
+box-shadow:0 40px 100px rgba(0,0,0,.22);
+transform:rotate(2deg);
+}
+.screen{
+background:linear-gradient(180deg,#111827,#0b0f19);
+border-radius:30px;
+padding:20px;
+min-height:650px;
+color:white;
+}
+.story-bars{display:flex;gap:5px;margin-bottom:20px}
+.story-bars span{flex:1;height:3px;background:rgba(255,255,255,.35);border-radius:999px}
+.story-card{
+padding:18px;
+border-radius:24px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
+margin-top:18px;
+}
+.story-card h3{
+font-size:30px;
+line-height:1.05;
+letter-spacing:-.05em;
+margin-bottom:10px;
+}
+.story-card p{color:rgba(255,255,255,.72)}
+.message{
+background:white;
+color:#101114;
+padding:14px;
+border-radius:18px 18px 18px 4px;
+margin-top:12px;
+font-size:14px;
+}
+.section{padding:100px 0}
+h2{
+font-size:clamp(34px,5vw,58px);
+line-height:1.02;
+letter-spacing:-.06em;
+margin-bottom:18px;
+}
+.section-text{
+font-size:19px;
+color:#5f6470;
+max-width:700px;
+margin-bottom:42px;
+}
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+.card{
+background:white;
+padding:26px;
+border-radius:28px;
+border:1px solid rgba(0,0,0,.06);
+box-shadow:0 18px 42px rgba(31,42,68,.06);
+}
+.icon{
+width:48px;
+height:48px;
+border-radius:16px;
+background:linear-gradient(135deg,#eef3ff,#f4efff);
+display:grid;
+place-items:center;
+font-weight:900;
+color:#2f6bff;
+margin-bottom:18px;
+}
+.card h3{margin-bottom:10px}
+.card p{color:#667085}
+.consultoria-box{
+margin-top:42px;
+padding:34px;
+border-radius:34px;
+background:white;
+border:1px solid rgba(0,0,0,.06);
+box-shadow:0 24px 68px rgba(31,42,68,.08);
+display:grid;
+grid-template-columns:1fr auto;
+gap:24px;
+align-items:center;
+}
+.price{
+font-size:62px;
+font-weight:900;
+letter-spacing:-.07em;
+}
+.price span{
+font-size:20px;
+color:#667085;
+}
+.inside-plaza{
+padding:100px 0;
+background:#f7f8fb;
+}
+.inside-box{
+padding:58px;
+border-radius:42px;
+background:
+radial-gradient(circle at top right, rgba(255,255,255,.34), transparent 32%),
+linear-gradient(135deg,#101114,#18223d 52%,#2f6bff);
+color:white;
+}
+.inside-grid{
+display:grid;
+grid-template-columns:1fr .85fr;
+gap:44px;
+align-items:center;
+}
+.inside-price{
+font-size:70px;
+font-weight:900;
+letter-spacing:-.07em;
+margin:18px 0 8px;
+}
+.inside-price span{font-size:22px;color:rgba(255,255,255,.7)}
+.inside-list{display:grid;gap:12px;margin:26px 0}
+.inside-list div{
+padding:14px 16px;
+border-radius:18px;
+background:rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.12);
+}
+footer{
+padding:40px 0;
+border-top:1px solid rgba(0,0,0,.06);
+text-align:center;
+color:#777e89;
+}
+.floating{
+position:fixed;
+right:22px;
+bottom:22px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25d366;
+color:white;
+display:grid;
+place-items:center;
+text-decoration:none;
+font-weight:900;
+box-shadow:0 18px 36px rgba(37,211,102,.34);
+}
+@media(max-width:920px){
+.hero-grid,.inside-grid{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr 1fr}
+.consultoria-box{grid-template-columns:1fr}
+.phone{transform:none;max-width:420px;margin:auto}
+.menu{display:none}
+}
+@media(max-width:620px){
+.cards{grid-template-columns:1fr}
+.buttons .btn{width:100%}
+.logo-img{height:48px}
+.inside-box,.consultoria-box{padding:30px 24px}
+.price,.inside-price{font-size:52px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+<a href="#">
+<img src="logo-pedro-plaza.png" alt="Pedro Plaza" class="logo-img">
+</a>
+
+<div class="menu">
 <a href="#consultoria">Consultoria</a>
 <a href="#inside-plaza">Inside Plaza</a>
+</div>
+</nav>
+</div>
+</header>
 
+<section class="hero">
+<div class="container hero-grid">
 
+<div>
+<div class="label">Pedro Plaza</div>
 
+<h1>
+Gestão financeira moderna para quem quer crescer.
+</h1>
 
+<p>
+Consultoria financeira pessoal com acompanhamento real, estratégia prática e direção financeira para construir patrimônio.
+</p>
 
+<div class="buttons">
+<a class="btn btn-primary" href="https://wa.me/5521974302424" target="_blank">
+Iniciar consultoria
+</a>
 
-<!-- ADICIONAR ESTA SEÇÃO ANTES DO INSIDE PLAZA -->
+<a class="btn btn-secondary" href="#inside-plaza">
+Inside Plaza
+</a>
+</div>
+</div>
+
+<div class="phone">
+<div class="screen">
+
+<div class="story-bars">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="story-card">
+<h3>
+Organização financeira com clareza.
+</h3>
+
+<p>
+Planejamento, decisões inteligentes e acompanhamento financeiro acessível.
+</p>
+</div>
+
+<div class="message">
+“finalmente alguém que explica dinheiro de forma simples”
+</div>
+
+<div class="message">
+“a consultoria me ajudou a me organizar de verdade”
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
 
 <section class="section" id="consultoria">
+<div class="container">
 
-  <div class="container">
+<div class="label">
+Consultoria mensal
+</div>
 
-    <div class="label">
-      Consultoria mensal
-    </div>
+<h2>
+Acompanhamento financeiro com direção real.
+</h2>
 
-    <h2>
-      Acompanhamento financeiro com direção real.
-    </h2>
+<p class="section-text">
+Uma consultoria pensada para quem quer organizar melhor sua vida financeira, construir patrimônio e tomar decisões mais inteligentes com o dinheiro.
+</p>
 
-    <p class="section-text">
-      Uma consultoria pensada para quem quer organizar melhor sua vida financeira,
-      construir patrimônio e tomar decisões mais inteligentes com o dinheiro.
-    </p>
+<div class="cards">
 
-    <div class="cards">
+<div class="card">
+<div class="icon">01</div>
+<h3>1 call mensal</h3>
+<p>Uma conversa estratégica para revisar metas, organização financeira e próximos passos.</p>
+</div>
 
-      <div class="card">
+<div class="card">
+<div class="icon">02</div>
+<h3>Acompanhamento diário</h3>
+<p>Suporte no WhatsApp para dúvidas, direcionamentos e decisões financeiras.</p>
+</div>
 
-        <div class="icon">01</div>
+<div class="card">
+<div class="icon">03</div>
+<h3>Estratégia financeira</h3>
+<p>Planejamento, clareza financeira e construção patrimonial.</p>
+</div>
 
-        <h3>1 call mensal</h3>
+<div class="card">
+<div class="icon">04</div>
+<h3>Valor acessível</h3>
+<p>Consultoria mensal completa por apenas R$ 100/mês.</p>
+</div>
 
-        <p>
-          Uma conversa estratégica para revisar metas,
-          organização financeira e próximos passos.
-        </p>
+</div>
 
-      </div>
+<div class="consultoria-box">
 
-      <div class="card">
+<div>
+<div class="price">
+R$ 100<span>/mês</span>
+</div>
 
-        <div class="icon">02</div>
+<p>
+Inclui 1 call mensal e acompanhamento diário pelo WhatsApp.
+</p>
+</div>
 
-        <h3>Acompanhamento diário</h3>
+<a class="btn btn-primary" href="https://wa.me/5521974302424" target="_blank">
+Quero iniciar minha consultoria
+</a>
 
-        <p>
-          Suporte no WhatsApp para dúvidas,
-          direcionamentos e decisões financeiras.
-        </p>
+</div>
 
-      </div>
-
-      <div class="card">
-
-        <div class="icon">03</div>
-
-        <h3>Estratégia financeira</h3>
-
-        <p>
-          Organização, planejamento,
-          clareza e construção patrimonial.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="icon">04</div>
-
-        <h3>Investimento acessível</h3>
-
-        <p>
-          Tudo isso por apenas
-          R$ 100/mês.
-        </p>
-
-      </div>
-
-    </div>
-
-    <div style="margin-top:42px">
-
-      <a class="btn btn-primary"
-         href="https://wa.me/5521974302424"
-         target="_blank">
-
-         Quero iniciar minha consultoria
-
-      </a>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
-
-
-
-
-
-
-
-<!-- MANTER A SEÇÃO INSIDE PLAZA ABAIXO -->
 
 <section class="inside-plaza" id="inside-plaza">
+<div class="container">
 
-  <div class="container">
+<div class="inside-box">
 
-    <div class="inside-box">
+<div class="inside-grid">
 
-      <div class="inside-grid">
+<div>
 
-        <div>
+<div class="label">
+Inside Plaza
+</div>
 
-          <div class="label">
-            Inside Plaza
-          </div>
+<h2>
+Você não está entrando em um Close Friends.
+</h2>
 
-          <h2>
-            Você não está entrando em um Close Friends.
-          </h2>
+<p>
+Você está acompanhando uma construção em tempo real: rotina, ambição, dinheiro, pensamentos, decisões e bastidores que eu não posto no feed.
+</p>
 
-          <p>
-            Você está acompanhando uma construção em tempo real:
-            rotina, ambição, dinheiro, pensamentos, decisões e bastidores
-            que eu não posto no feed.
-          </p>
+<div class="inside-price">
+R$ 9,90<span>/mês</span>
+</div>
 
-          <div class="inside-price">
-            R$ 9,90<span>/mês</span>
-          </div>
+<div class="inside-list">
 
-          <div class="inside-list">
+<div>
+Vídeos diários com reflexões curtas e reais.
+</div>
 
-            <div>
-              Vídeos diários com reflexões curtas e reais.
-            </div>
+<div>
+Bastidores de trabalho, estudos, gestão e marca pessoal.
+</div>
 
-            <div>
-              Bastidores de trabalho, estudos, gestão e marca pessoal.
-            </div>
+<div>
+Pensamentos sobre dinheiro, organização e crescimento.
+</div>
 
-            <div>
-              Pensamentos sobre dinheiro, organização e crescimento.
-            </div>
+<div>
+Erros, inseguranças e aprendizados que não aparecem no feed.
+</div>
 
-            <div>
-              Erros, inseguranças e aprendizados que não aparecem no feed.
-            </div>
+</div>
 
-          </div>
+<a class="btn btn-secondary" href="https://wa.me/5521974302424" target="_blank">
+Entrar no Inside Plaza
+</a>
 
-          <a class="btn btn-primary"
-             href="https://wa.me/5521974302424"
-             target="_blank">
+</div>
 
-             Entrar no Inside Plaza
+<div class="phone">
+<div class="screen">
 
-          </a>
+<div class="story-bars">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-        </div>
+<div class="story-card">
+<h3>
+O feed mostra o resultado.
+Aqui mostra o processo.
+</h3>
 
-        <div class="inside-phone">
+<p>
+rotina, decisões, ambição, erros e construção em tempo real.
+</p>
+</div>
 
-          <div class="inside-screen">
+<div class="message">
+“isso aqui não parece um CF de 10 reais”
+</div>
 
-            <div class="inside-bars">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+<div class="message">
+“parece conversa com amigo inteligente”
+</div>
 
-            <div class="inside-story-head">
+</div>
+</div>
 
-              <div class="inside-avatar"></div>
+</div>
+</div>
 
-              <div>
-
-                <strong>
-                  pedroplaza • inside
-                </strong>
-
-                <br>
-
-                <small style="color:rgba(255,255,255,.55)">
-                  há 12 min
-                </small>
-
-              </div>
-
-            </div>
-
-            <div class="inside-video">
-
-              <div class="inside-play">
-                ▶
-              </div>
-
-            </div>
-
-            <div class="inside-message">
-              “isso aqui não parece um CF de 10 reais”
-            </div>
-
-            <div class="inside-message">
-              “parece conversa com amigo inteligente”
-            </div>
-
-            <div class="inside-message">
-              “o feed mostra o resultado. aqui mostra o processo.”
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
+
+<footer>
+© 2026 Pedro Plaza — Gestão Financeira
+</footer>
+
+<a class="floating" href="https://wa.me/5521974302424" target="_blank">
+W
+</a>
+
+</body>
+</html>
